@@ -2,3 +2,4 @@ my.txt
 .vscode
 .htaccess
 .ftpquota
+.node_modules
