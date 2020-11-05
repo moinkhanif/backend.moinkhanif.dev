@@ -8,6 +8,6 @@ app.use(express.json({limit: '1mb'}));
 app.get('/gh-pinned', (req, res) => {
   res.json({
     "status": "ok",
-    "req": JSON.stringify(req)
+    "req": "hmm"
   })
 })
