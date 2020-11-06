@@ -1,4 +1,3 @@
-const { response } = require('express');
 const express = require('express');
 const app = express();
 
@@ -8,7 +7,7 @@ app.use(express.json({limit: '1mb'}));
 
 app.post('/api/v1/weathery', (req, res) => {
   res.json({
-    'status': 'success'
+    'status': process.env.WEATHER_API_KEY
   })
 })
 
