@@ -6,7 +6,7 @@ app.listen(3000);
 app.use(express.static('public'))
 app.use(express.json({limit: '1mb'}));
 
-app.post('/weathery', (req, res) => {
+app.post('/api/v1/weathery', (req, res) => {
   res.json({
     'status': 'success'
   })
