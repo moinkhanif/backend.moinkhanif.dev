@@ -12,7 +12,7 @@ app.use(express.static('public'))
 app.use(express.json({limit: '1mb'}));
 
 const getweather = async ({place}) => {
-  const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${weatherApiKey}`)
+  const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${weatherApiKey}&units=metric`)
   const weatherJSON = await weather.json()
   return weatherJSON
 }
