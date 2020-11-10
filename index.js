@@ -28,10 +28,10 @@ app.post('/api/v1/weathery', async (req, res) => {
   const body = req.body;
   let lot, instantDetail = {};
 
-  if (body.instantPlace) {
+  if (body.instantPlace && body.instantPlace.length > 1) {
     instantDetail = await getInstantDetail(body)
   }
-  if (body.place) {
+  if (body.place && body.place.length > 1) {
     lot = await getweather(body)
   }
 
