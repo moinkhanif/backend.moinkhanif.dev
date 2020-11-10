@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 require('dotenv').config()
 
 const weatherApiKey = process.env.WEATHER_API_KEY
-const placesApiKey = process.env.PLACES_API_KEY
+const placeSuggestionsKey = process.env.LOCATIONIQ_API_KEY
 
 
 app.listen(3000);
@@ -18,14 +18,11 @@ const getweather = async ({place}) => {
 }
 
 const getInstantDetail = async ({instantPlace}) => {
-  const result = await fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${instantPlace}&types=(cities)&key=${placesApiKey}`)
+  const result = await fetch(`https://api.locationiq.com/v1/autocomplete.php?key=${placeSuggestionsKey}&q=${instantPlace}&limit=5&normalizecity=1&tag=place%3Acity&dedupe=1`)
   const json = await result.json();
-  let predictions = json.predictions
-  if (predictions.length > 4) {
-    predictions.splice(4, predictions.length)
-  }
-  return predictions
+  return json
 }
+
 
 app.post('/api/v1/weathery', async (req, res) => {
   const body = req.body;
