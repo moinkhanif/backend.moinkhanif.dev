@@ -5,6 +5,7 @@ require('dotenv').config()
 
 const weatherApiKey = process.env.WEATHER_API_KEY
 const placeSuggestionsKey = process.env.LOCATIONIQ_API_KEY
+const gifyKey = process.env.GIPHY_IMAGE_API
 
 
 app.listen(3000);
@@ -14,6 +15,12 @@ app.use(express.json({limit: '1mb'}));
 const getweather = async ({place}) => {
   const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${weatherApiKey}&units=metric`)
   const weatherJSON = await weather.json()
+  const { weatherDetails } = json;
+  if (weatherDetails.message) {
+  } else {
+    weatherJSON.gif = await fetch(`https://api.giphy.com/v1/gifs/search?q=weather${weatherDetails.weather[0].description}&rating=g&api_key=${gifyKey}`)
+  }
+
   return weatherJSON
 }
 
