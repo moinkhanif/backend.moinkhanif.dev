@@ -18,7 +18,7 @@ const getweather = async ({place}) => {
   if(weatherJSON.message) {
     weatherJSON.gify = {}
   } else {
-    const giphyRes = await fetch(`https://api.giphy.com/v1/gifs/search?q=weather%20${weatherJSON.weather[0].description}&api_key=${giphyKey}`)
+    const giphyRes = await fetch(`https://api.giphy.com/v1/gifs/search?q=weather%20${weatherJSON.weather[0].description}&rating=g&limit=10&api_key=${giphyKey}`)
     weatherJSON.gify = await giphyRes.json()
   }
   return weatherJSON
