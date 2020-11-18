@@ -1,1 +1,7 @@
 my.txt
+.vscode
+.htaccess
+.ftpquota
+node_modules
+tri.js
+.env
