@@ -5,3 +5,4 @@ my.txt
 node_modules
 tri.js
 .env
+database.db
